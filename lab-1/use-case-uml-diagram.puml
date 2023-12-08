@@ -1,0 +1,42 @@
+@startuml
+
+left to right direction
+actor "Job / Internship Seeker" as JobSeeker
+actor "Employer / Recruiter" as Employer
+actor "Platform Admin" as Admin
+
+rectangle "Employment / Internships Platform" {
+  usecase "Create and Manage Employer Account" as UC1
+  usecase "Create and Manage Job Seeker Account" as UC2
+  usecase "Post / Manage CV and Description of the Desired Job / Internship" as UC3
+  usecase "Search and Apply for Jobs / Internships" as UC4
+  usecase "Track Application Status" as UC5
+  usecase "Set Application Status" as UC6
+  usecase "Post/Manage Job Listings" as UC7
+  usecase "Search Candidates and Offer them Job Proposals" as UC8
+  usecase "Verify Employers" as UC9
+  usecase "Moderate Posts from Job Seekers and Employers" as UC10
+  usecase "Notify Candidate" as UC11
+}
+
+JobSeeker -- UC2
+JobSeeker -- UC3
+JobSeeker -- UC4
+JobSeeker -- UC5
+
+Employer -- UC1
+Employer -- UC7
+Employer -- UC8
+Employer -- UC11
+
+Admin -- UC9
+Admin -- UC10
+
+' Relationships
+UC11 ..> UC6 : <<includes>>
+UC6 --> UC5
+UC7 ..> UC10 : <<extends>>
+UC3 ..> UC10 : <<extends>>
+UC1 ..> UC9 : <<includes>>
+
+@enduml

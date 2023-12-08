@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?><bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="definitions_2" targetNamespace="http://www.bpmn-sketch-miner.ai" exporter="BPMN Sketch Miner" exporterVersion="1.17.6.3337">
+ <bpmn:collaboration id="collaboration_3">
+ <bpmn:participant id="participant_7" name="" processRef="process_6"/>
+ <bpmn:participant id="participant_28" name="" processRef="process_27"/>
+ <bpmn:participant id="participant_55" name="" processRef="process_54"/>
+ <bpmn:messageFlow id="messageFlow_63" sourceRef="intermediateThrowEvent_15" targetRef="intermediateCatchEvent_37"/>
+ <bpmn:messageFlow id="messageFlow_64" sourceRef="intermediateThrowEvent_33" targetRef="startEvent_58"/>
+ <bpmn:messageFlow id="messageFlow_65" sourceRef="endEvent_40" targetRef="intermediateCatchEvent_18"/>
+ <bpmn:messageFlow id="messageFlow_66" sourceRef="endEvent_41" targetRef="intermediateCatchEvent_17"/>
+ <bpmn:messageFlow id="messageFlow_67" sourceRef="endEvent_60" targetRef="intermediateCatchEvent_35"/>
+</bpmn:collaboration>
+
+ <bpmn:process id="process_6" isExecutable="false">
+ <bpmn:laneSet id="laneSet_8">
+ <bpmn:lane id="lane_9" name="Job Seeker">
+ <bpmn:flowNodeRef>startEvent_10</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>endEvent_11</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>task_12</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>task_13</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>task_14</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>intermediateThrowEvent_15</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>task_16</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>intermediateCatchEvent_17</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>intermediateCatchEvent_18</bpmn:flowNodeRef>
+
+</bpmn:lane>
+
+</bpmn:laneSet>
+
+ <bpmn:startEvent id="startEvent_10">
+ <bpmn:outgoing>sequenceFlow_19</bpmn:outgoing>
+
+</bpmn:startEvent>
+
+ <bpmn:endEvent id="endEvent_11">
+ <bpmn:incoming>sequenceFlow_26</bpmn:incoming>
+
+</bpmn:endEvent>
+
+ <bpmn:task id="task_12" name="Log into the
+Platform">
+ <bpmn:incoming>sequenceFlow_19</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_20</bpmn:outgoing>
+
+</bpmn:task>
+
+ <bpmn:task id="task_13" name="Search and Select
+Job">
+ <bpmn:incoming>sequenceFlow_20</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_21</bpmn:outgoing>
+
+</bpmn:task>
+
+ <bpmn:task id="task_14" name="Prepare and Submit
+Application">
+ <bpmn:incoming>sequenceFlow_21</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_22</bpmn:outgoing>
+
+</bpmn:task>
+
+ <bpmn:intermediateThrowEvent id="intermediateThrowEvent_15" name="job application
+submission">
+ <bpmn:messageEventDefinition/>
+ <bpmn:incoming>sequenceFlow_22</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_23</bpmn:outgoing>
+
+</bpmn:intermediateThrowEvent>
+
+ <bpmn:task id="task_16" name="Wait for an update
+on your application">
+ <bpmn:incoming>sequenceFlow_23</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_24</bpmn:outgoing>
+
+</bpmn:task>
+
+ <bpmn:intermediateCatchEvent id="intermediateCatchEvent_17" name="rejection
+notification">
+ <bpmn:messageEventDefinition/>
+ <bpmn:incoming>sequenceFlow_24</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_25</bpmn:outgoing>
+
+</bpmn:intermediateCatchEvent>
+
+ <bpmn:intermediateCatchEvent id="intermediateCatchEvent_18" name="interview
+invitation">
+ <bpmn:messageEventDefinition/>
+ <bpmn:incoming>sequenceFlow_25</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_26</bpmn:outgoing>
+
+</bpmn:intermediateCatchEvent>
+
+ <bpmn:sequenceFlow id="sequenceFlow_19" sourceRef="startEvent_10" targetRef="task_12"/>
+ <bpmn:sequenceFlow id="sequenceFlow_20" sourceRef="task_12" targetRef="task_13"/>
+ <bpmn:sequenceFlow id="sequenceFlow_21" sourceRef="task_13" targetRef="task_14"/>
+ <bpmn:sequenceFlow id="sequenceFlow_22" sourceRef="task_14" targetRef="intermediateThrowEvent_15"/>
+ <bpmn:sequenceFlow id="sequenceFlow_23" sourceRef="intermediateThrowEvent_15" targetRef="task_16"/>
+ <bpmn:sequenceFlow id="sequenceFlow_24" sourceRef="task_16" targetRef="intermediateCatchEvent_17"/>
+ <bpmn:sequenceFlow id="sequenceFlow_25" sourceRef="intermediateCatchEvent_17" targetRef="intermediateCatchEvent_18"/>
+ <bpmn:sequenceFlow id="sequenceFlow_26" sourceRef="intermediateCatchEvent_18" targetRef="endEvent_11"/>
+</bpmn:process>
+
+ <bpmn:process id="process_27" isExecutable="false">
+ <bpmn:laneSet id="laneSet_29">
+ <bpmn:lane id="lane_30" name="Employer">
+ <bpmn:flowNodeRef>task_31</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>task_32</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>intermediateThrowEvent_33</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>task_34</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>intermediateCatchEvent_35</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>task_36</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>intermediateCatchEvent_37</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>task_38</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>exclusiveGateway_39</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>endEvent_40</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>endEvent_41</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>startEvent_42</bpmn:flowNodeRef>
+
+</bpmn:lane>
+
+</bpmn:laneSet>
+
+ <bpmn:task id="task_31" name="Sign up on the
+platform">
+ <bpmn:outgoing>sequenceFlow_43</bpmn:outgoing>
+
+ <bpmn:incoming>sequenceFlow_50</bpmn:incoming>
+
+</bpmn:task>
+
+ <bpmn:task id="task_32" name="Request verification">
+ <bpmn:incoming>sequenceFlow_43</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_44</bpmn:outgoing>
+
+</bpmn:task>
+
+ <bpmn:intermediateThrowEvent id="intermediateThrowEvent_33" name="employer
+verification request">
+ <bpmn:messageEventDefinition/>
+ <bpmn:incoming>sequenceFlow_44</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_45</bpmn:outgoing>
+
+</bpmn:intermediateThrowEvent>
+
+ <bpmn:task id="task_34" name="Wait for
+verification">
+ <bpmn:incoming>sequenceFlow_45</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_46</bpmn:outgoing>
+
+</bpmn:task>
+
+ <bpmn:intermediateCatchEvent id="intermediateCatchEvent_35" name="verification status">
+ <bpmn:messageEventDefinition/>
+ <bpmn:incoming>sequenceFlow_46</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_47</bpmn:outgoing>
+
+</bpmn:intermediateCatchEvent>
+
+ <bpmn:task id="task_36" name="Post job listing">
+ <bpmn:incoming>sequenceFlow_47</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_48</bpmn:outgoing>
+
+</bpmn:task>
+
+ <bpmn:intermediateCatchEvent id="intermediateCatchEvent_37" name="job application
+submission">
+ <bpmn:messageEventDefinition/>
+ <bpmn:incoming>sequenceFlow_48</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_49</bpmn:outgoing>
+
+</bpmn:intermediateCatchEvent>
+
+ <bpmn:task id="task_38" name="Review Application">
+ <bpmn:incoming>sequenceFlow_49</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_53</bpmn:outgoing>
+
+</bpmn:task>
+
+ <bpmn:exclusiveGateway id="exclusiveGateway_39" name="Decision on
+application?">
+ <bpmn:outgoing>sequenceFlow_51</bpmn:outgoing>
+
+ <bpmn:outgoing>sequenceFlow_52</bpmn:outgoing>
+
+ <bpmn:incoming>sequenceFlow_53</bpmn:incoming>
+
+</bpmn:exclusiveGateway>
+
+ <bpmn:endEvent id="endEvent_40" name="interview
+invitation">
+ <bpmn:messageEventDefinition/>
+ <bpmn:incoming>sequenceFlow_51</bpmn:incoming>
+
+</bpmn:endEvent>
+
+ <bpmn:endEvent id="endEvent_41" name="rejection
+notification">
+ <bpmn:messageEventDefinition/>
+ <bpmn:incoming>sequenceFlow_52</bpmn:incoming>
+
+</bpmn:endEvent>
+
+ <bpmn:startEvent id="startEvent_42">
+ <bpmn:outgoing>sequenceFlow_50</bpmn:outgoing>
+
+</bpmn:startEvent>
+
+ <bpmn:sequenceFlow id="sequenceFlow_43" sourceRef="task_31" targetRef="task_32"/>
+ <bpmn:sequenceFlow id="sequenceFlow_44" sourceRef="task_32" targetRef="intermediateThrowEvent_33"/>
+ <bpmn:sequenceFlow id="sequenceFlow_45" sourceRef="intermediateThrowEvent_33" targetRef="task_34"/>
+ <bpmn:sequenceFlow id="sequenceFlow_46" sourceRef="task_34" targetRef="intermediateCatchEvent_35"/>
+ <bpmn:sequenceFlow id="sequenceFlow_47" sourceRef="intermediateCatchEvent_35" targetRef="task_36"/>
+ <bpmn:sequenceFlow id="sequenceFlow_48" sourceRef="task_36" targetRef="intermediateCatchEvent_37"/>
+ <bpmn:sequenceFlow id="sequenceFlow_49" sourceRef="intermediateCatchEvent_37" targetRef="task_38"/>
+ <bpmn:sequenceFlow id="sequenceFlow_50" sourceRef="startEvent_42" targetRef="task_31"/>
+ <bpmn:sequenceFlow id="sequenceFlow_51" sourceRef="exclusiveGateway_39" targetRef="endEvent_40" name="Go
+forward"/>
+ <bpmn:sequenceFlow id="sequenceFlow_52" sourceRef="exclusiveGateway_39" targetRef="endEvent_41" name="Reject"/>
+ <bpmn:sequenceFlow id="sequenceFlow_53" sourceRef="task_38" targetRef="exclusiveGateway_39"/>
+</bpmn:process>
+
+ <bpmn:process id="process_54" isExecutable="false">
+ <bpmn:laneSet id="laneSet_56">
+ <bpmn:lane id="lane_57" name="Platform Admin">
+ <bpmn:flowNodeRef>startEvent_58</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>task_59</bpmn:flowNodeRef>
+
+ <bpmn:flowNodeRef>endEvent_60</bpmn:flowNodeRef>
+
+</bpmn:lane>
+
+</bpmn:laneSet>
+
+ <bpmn:startEvent id="startEvent_58" name="employer
+verification request">
+ <bpmn:messageEventDefinition/>
+ <bpmn:outgoing>sequenceFlow_61</bpmn:outgoing>
+
+</bpmn:startEvent>
+
+ <bpmn:task id="task_59" name="Process employer
+verification">
+ <bpmn:incoming>sequenceFlow_61</bpmn:incoming>
+
+ <bpmn:outgoing>sequenceFlow_62</bpmn:outgoing>
+
+</bpmn:task>
+
+ <bpmn:endEvent id="endEvent_60" name="verification status">
+ <bpmn:messageEventDefinition/>
+ <bpmn:incoming>sequenceFlow_62</bpmn:incoming>
+
+</bpmn:endEvent>
+
+ <bpmn:sequenceFlow id="sequenceFlow_61" sourceRef="startEvent_58" targetRef="task_59"/>
+ <bpmn:sequenceFlow id="sequenceFlow_62" sourceRef="task_59" targetRef="endEvent_60"/>
+</bpmn:process>
+
+ <bpmndi:BPMNDiagram id="BPMNDiagram_4">
+ <bpmndi:BPMNPlane id="BPMNPlane_5" bpmnElement="collaboration_3">
+ <bpmndi:BPMNShape id="participant_7_di" bpmnElement="participant_7" isHorizontal="false">
+ <dc:Bounds x="0" y="40" width="300" height="1188"/>
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="lane_9_di" bpmnElement="lane_9" isHorizontal="false">
+ <dc:Bounds x="0" y="40" width="300" height="1188"/>
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="startEvent_10_di" bpmnElement="startEvent_10" isHorizontal="false">
+ <dc:Bounds x="140" y="332" width="20" height="20"/>
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="endEvent_11_di" bpmnElement="endEvent_11" isHorizontal="false">
+ <dc:Bounds x="140" y="1173" width="20" height="20"/>
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="task_12_di" bpmnElement="task_12" isHorizontal="false">
+ <dc:Bounds x="97" y="385" width="106" height="55"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="122" y="385" width="20" height="20"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="task_13_di" bpmnElement="task_13" isHorizontal="false">
+ <dc:Bounds x="76" y="465" width="148" height="55"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="101" y="465" width="20" height="20"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="task_14_di" bpmnElement="task_14" isHorizontal="false">
+ <dc:Bounds x="68" y="545" width="163" height="55"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="93" y="545" width="20" height="20"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="intermediateThrowEvent_15_di" bpmnElement="intermediateThrowEvent_15" isHorizontal="false">
+ <dc:Bounds x="140" y="635" width="20" height="20"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="122" y="629" width="107" height="35"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="task_16_di" bpmnElement="task_16" isHorizontal="false">
+ <dc:Bounds x="70" y="972" width="159" height="55"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="95" y="972" width="20" height="20"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="intermediateCatchEvent_17_di" bpmnElement="intermediateCatchEvent_17" isHorizontal="false">
+ <dc:Bounds x="140" y="1060" width="20" height="20"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="134" y="1054" width="83" height="35"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="intermediateCatchEvent_18_di" bpmnElement="intermediateCatchEvent_18" isHorizontal="false">
+ <dc:Bounds x="140" y="1120" width="20" height="20"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="142" y="1114" width="68" height="35"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_19_di" bpmnElement="sequenceFlow_19">
+ <di:waypoint x="150" y="352"/>
+ <di:waypoint x="150" y="385"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_20_di" bpmnElement="sequenceFlow_20">
+ <di:waypoint x="150" y="440"/>
+ <di:waypoint x="150" y="465"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_21_di" bpmnElement="sequenceFlow_21">
+ <di:waypoint x="150" y="520"/>
+ <di:waypoint x="150" y="545"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_22_di" bpmnElement="sequenceFlow_22">
+ <di:waypoint x="150" y="601"/>
+ <di:waypoint x="150" y="628"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_23_di" bpmnElement="sequenceFlow_23">
+ <di:waypoint x="150" y="663"/>
+ <di:waypoint x="150" y="707"/>
+ <di:waypoint x="150" y="770"/>
+ <di:waypoint x="150" y="838"/>
+ <di:waypoint x="150" y="905"/>
+ <di:waypoint x="150" y="947"/>
+ <di:waypoint x="150" y="972"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_24_di" bpmnElement="sequenceFlow_24">
+ <di:waypoint x="150" y="1028"/>
+ <di:waypoint x="150" y="1053"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_25_di" bpmnElement="sequenceFlow_25">
+ <di:waypoint x="150" y="1088"/>
+ <di:waypoint x="150" y="1113"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_26_di" bpmnElement="sequenceFlow_26">
+ <di:waypoint x="150" y="1148"/>
+ <di:waypoint x="150" y="1173"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNShape id="participant_28_di" bpmnElement="participant_28" isHorizontal="false">
+ <dc:Bounds x="320" y="40" width="516" height="1188"/>
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="lane_30_di" bpmnElement="lane_30" isHorizontal="false">
+ <dc:Bounds x="320" y="40" width="516" height="1188"/>
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="task_31_di" bpmnElement="task_31" isHorizontal="false">
+ <dc:Bounds x="519" y="120" width="125" height="55"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="544" y="120" width="20" height="20"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="task_32_di" bpmnElement="task_32" isHorizontal="false">
+ <dc:Bounds x="499" y="200" width="163" height="39"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="524" y="200" width="163" height="39"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="intermediateThrowEvent_33_di" bpmnElement="intermediateThrowEvent_33" isHorizontal="false">
+ <dc:Bounds x="571" y="272" width="20" height="20"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="537" y="265" width="140" height="35"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="task_34_di" bpmnElement="task_34" isHorizontal="false">
+ <dc:Bounds x="531" y="465" width="100" height="55"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="556" y="465" width="20" height="20"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="intermediateCatchEvent_35_di" bpmnElement="intermediateCatchEvent_35" isHorizontal="false">
+ <dc:Bounds x="571" y="563" width="20" height="20"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="543" y="564" width="129" height="19"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="task_36_di" bpmnElement="task_36" isHorizontal="false">
+ <dc:Bounds x="518" y="626" width="127" height="39"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="543" y="626" width="127" height="39"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="intermediateCatchEvent_37_di" bpmnElement="intermediateCatchEvent_37" isHorizontal="false">
+ <dc:Bounds x="571" y="697" width="20" height="20"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="553" y="691" width="107" height="35"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="task_38_di" bpmnElement="task_38" isHorizontal="false">
+ <dc:Bounds x="504" y="750" width="154" height="39"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="529" y="750" width="154" height="39"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="exclusiveGateway_39_di" bpmnElement="exclusiveGateway_39" isHorizontal="false">
+ <dc:Bounds x="556" y="818" width="50" height="50"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="618" y="822" width="89" height="35"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="endEvent_40_di" bpmnElement="endEvent_40" isHorizontal="false">
+ <dc:Bounds x="679" y="990" width="20" height="20"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="681" y="983" width="68" height="35"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="endEvent_41_di" bpmnElement="endEvent_41" isHorizontal="false">
+ <dc:Bounds x="463" y="990" width="20" height="20"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="458" y="983" width="83" height="35"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="startEvent_42_di" bpmnElement="startEvent_42" isHorizontal="false">
+ <dc:Bounds x="571" y="75" width="20" height="20"/>
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_43_di" bpmnElement="sequenceFlow_43">
+ <di:waypoint x="581" y="175"/>
+ <di:waypoint x="581" y="200"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_44_di" bpmnElement="sequenceFlow_44">
+ <di:waypoint x="581" y="239"/>
+ <di:waypoint x="581" y="264"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_45_di" bpmnElement="sequenceFlow_45">
+ <di:waypoint x="581" y="300"/>
+ <di:waypoint x="581" y="342"/>
+ <di:waypoint x="581" y="412"/>
+ <di:waypoint x="581" y="465"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_46_di" bpmnElement="sequenceFlow_46">
+ <di:waypoint x="581" y="520"/>
+ <di:waypoint x="581" y="563"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_47_di" bpmnElement="sequenceFlow_47">
+ <di:waypoint x="581" y="583"/>
+ <di:waypoint x="581" y="626"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_48_di" bpmnElement="sequenceFlow_48">
+ <di:waypoint x="581" y="665"/>
+ <di:waypoint x="581" y="690"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_49_di" bpmnElement="sequenceFlow_49">
+ <di:waypoint x="581" y="725"/>
+ <di:waypoint x="581" y="750"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_50_di" bpmnElement="sequenceFlow_50">
+ <di:waypoint x="581" y="95"/>
+ <di:waypoint x="581" y="120"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_51_di" bpmnElement="sequenceFlow_51">
+ <di:waypoint x="605" y="853"/>
+ <di:waypoint x="689" y="905"/>
+ <di:waypoint x="689" y="947"/>
+ <di:waypoint x="689" y="982"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="726" y="905" width="55" height="35"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_52_di" bpmnElement="sequenceFlow_52">
+ <di:waypoint x="557" y="853"/>
+ <di:waypoint x="473" y="905"/>
+ <di:waypoint x="473" y="947"/>
+ <di:waypoint x="473" y="982"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="505" y="905" width="44" height="19"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_53_di" bpmnElement="sequenceFlow_53">
+ <di:waypoint x="581" y="789"/>
+ <di:waypoint x="581" y="814"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNShape id="participant_55_di" bpmnElement="participant_55" isHorizontal="false">
+ <dc:Bounds x="855" y="40" width="364" height="1188"/>
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="lane_57_di" bpmnElement="lane_57" isHorizontal="false">
+ <dc:Bounds x="855" y="40" width="364" height="1188"/>
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="startEvent_58_di" bpmnElement="startEvent_58" isHorizontal="false">
+ <dc:Bounds x="1027" y="332" width="20" height="20"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="994" y="326" width="140" height="35"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="task_59_di" bpmnElement="task_59" isHorizontal="false">
+ <dc:Bounds x="964" y="385" width="147" height="55"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="989" y="385" width="20" height="20"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNShape id="endEvent_60_di" bpmnElement="endEvent_60" isHorizontal="false">
+ <dc:Bounds x="1027" y="483" width="20" height="20"/>
+ <bpmndi:BPMNLabel>
+ <dc:Bounds x="999" y="484" width="129" height="19"/>
+</bpmndi:BPMNLabel>
+
+</bpmndi:BPMNShape>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_61_di" bpmnElement="sequenceFlow_61">
+ <di:waypoint x="1037" y="360"/>
+ <di:waypoint x="1037" y="385"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="sequenceFlow_62_di" bpmnElement="sequenceFlow_62">
+ <di:waypoint x="1037" y="440"/>
+ <di:waypoint x="1037" y="483"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="messageFlow_63_di" bpmnElement="messageFlow_63">
+ <di:waypoint x="265" y="662"/>
+ <di:waypoint x="466" y="691"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="messageFlow_64_di" bpmnElement="messageFlow_64">
+ <di:waypoint x="714" y="300"/>
+ <di:waypoint x="904" y="325"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="messageFlow_65_di" bpmnElement="messageFlow_65">
+ <di:waypoint x="689" y="1018"/>
+ <di:waypoint x="689" y="1070"/>
+ <di:waypoint x="225" y="1122"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="messageFlow_66_di" bpmnElement="messageFlow_66">
+ <di:waypoint x="392" y="1018"/>
+ <di:waypoint x="231" y="1053"/>
+</bpmndi:BPMNEdge>
+
+ <bpmndi:BPMNEdge id="messageFlow_67_di" bpmnElement="messageFlow_67">
+ <di:waypoint x="983" y="502"/>
+ <di:waypoint x="636" y="563"/>
+</bpmndi:BPMNEdge>
+
+</bpmndi:BPMNPlane>
+
+</bpmndi:BPMNDiagram>
+
+</bpmn:definitions>
+<!--
+Exported by BPMN Sketch Miner 1.17.6.3337
+
+Job Seeker:
+
+Log into the Platform
+Search and Select Job
+Prepare and Submit Application
+(send job application submission)
+Wait for an update on your application 
+(receive rejection notification)
+(receive interview invitation)
+
+Employer:
+
+Sign up on the platform
+Request verification
+(send employer verification request)
+Wait for verification
+(receive verification status)
+Post job listing
+(receive job application submission)
+Review Application
+Decision on application?
+Go forward
+(send interview invitation)
+
+Sign up on the platform
+Request verification
+(send employer verification request)
+Wait for verification
+(receive verification status)
+Post job listing
+(receive job application submission)
+Review Application
+Decision on application?
+Reject
+(send rejection notification)
+
+Platform Admin:
+
+(receive employer verification request)
+Process employer verification
+(send verification status)
+
+
+-->
