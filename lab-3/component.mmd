@@ -1,0 +1,54 @@
+classDiagram
+    class UserInterface {
+        +Job Seeker Interface
+        +Employer Interface
+        +Admin Interface
+    }
+    class Authentication {
+        +Login Manager
+        +Registration Manager
+        +Security Manager
+    }
+    class ProfileManagement {
+        +Job Seeker Profile Manager
+        +Employer Profile Manager
+    }
+    class JobListing {
+        +Job Posting Manager
+        +Job Listing Viewer
+    }
+    class ApplicationManagement {
+        +Application Submitter
+        +Application Tracker
+    }
+    class Search {
+        +Job Search Engine
+        +Candidate Search Engine
+    }
+    class Notification {
+        +Email Notification System
+        +In-App Notification System
+    }
+    class Communication {
+        +Messaging System
+        +Chat Interface
+    }
+    class Database {
+        +User Data Store
+        +Job Data Store
+        +Application Data Store
+    }
+
+    UserInterface ..> Authentication
+    UserInterface ..> ProfileManagement
+    UserInterface ..> JobListing
+    UserInterface ..> ApplicationManagement
+    UserInterface ..> Search
+    UserInterface ..> Notification
+    UserInterface ..> Communication
+    ProfileManagement --> Database
+    JobListing --> Database
+    ApplicationManagement --> Database
+    Search --> Database
+    Notification --> Database
+    Communication --> Database
