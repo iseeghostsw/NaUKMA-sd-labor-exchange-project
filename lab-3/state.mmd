@@ -1,0 +1,22 @@
+---
+title: Job Application Process State Diagram
+---
+stateDiagram-v2
+    [*] --> Created
+    Created --> Submitted
+    Submitted --> UnderReview
+    UnderReview --> InterviewOffered
+    UnderReview --> Rejected
+    InterviewOffered --> InterviewAccepted
+    InterviewOffered --> InterviewRejected
+    InterviewAccepted --> JobOffered
+    InterviewRejected --> Closed
+    JobOffered --> JobAccepted
+    JobOffered --> JobRejected
+    JobAccepted --> Closed
+    JobRejected --> Closed
+    Rejected --> Closed
+
+Created: Job Application Created by Candidate
+
+UnderReview: Under Review by Employer

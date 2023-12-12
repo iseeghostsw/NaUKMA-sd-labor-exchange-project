@@ -1,0 +1,17 @@
+graph TD
+    subgraph "Client Tier"
+        CD[Client Devices]
+    end
+    subgraph "Server Tier"
+        WS[Web Server]
+        AS[Application Server]
+        DS[Database Server]
+    end
+    subgraph "External Services"
+        ES[External Email Service]
+    end
+
+    CD -->|HTTP/HTTPS Requests| WS
+    WS -->|Application Logic| AS
+    AS -->|Data Storage & Retrieval| DS
+    AS -->|Email Notifications| ES

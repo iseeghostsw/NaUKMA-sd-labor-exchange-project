@@ -1,0 +1,20 @@
+---
+title: Job Seeking Process From the Point Of View Of Candidate Activity Diagram
+---
+
+graph TD
+    A[Start] --> B[Log In/Register]
+    B -- "Registered User" --> C[Create/Update Profile]
+    B -- "New User" --> X[Register and Create Profile]
+    X --> C
+    C --> D[Search for Jobs]
+    D --> E[Select a Job]
+    E -- "Interested" --> F[Apply for Job]
+    E -- "Not Interested" --> D
+    F --> G[Application Submitted]
+    G --> H[Wait for Response]
+    H --> I[Receive Response]
+    I -- "Offer/Interview" --> K[Process Further]
+    I -- "Rejection" --> L[Continue Job Search]
+    K --> J[End Process]
+    L --> D

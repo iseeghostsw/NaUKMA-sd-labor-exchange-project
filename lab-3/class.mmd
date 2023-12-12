@@ -1,0 +1,114 @@
+classDiagram
+      User <|-- Candidate
+      User <|-- Employer
+      User <|-- Admin
+      Candidate "1" -- "0..*" JobApplication : applies >
+      Candidate "1" -- "0..*" CandidatePost : creates >
+      Employer "1" -- "0..*" JobListing : posts >
+      JobListing "1" -- "0..*" JobApplication : receives >
+      Admin "1" -- "0..*" Employer : verifies >
+      Admin "1" -- "0..*" JobListing : moderates >
+      Admin "1" -- "0..*" CandidatePost : moderates >
+      Candidate "0..*" -- "0..*" Message : exchanges >
+      Employer "0..*" -- "0..*" Message : exchanges >
+      User "1" -- "0..*" Notification : receives >
+
+      class User {
+          +String userID
+          +String email
+          +String password
+          +String username
+          +DateTime lastLogin
+          +login()
+          +logout()
+          +updateProfile()
+          +changePassword()
+      }
+      class Candidate {
+          +File cv
+          +String[] skills
+          +String summary
+          +String education
+          +String experience
+          +createPost()
+          +searchJobListings()
+          +applyForJob()
+          +viewApplicationStatus()
+          +sendMessage()
+          +receiveMessage()
+          +setNotificationPreferences()
+      }
+      class Employer {
+          +String employerID
+          +Boolean isVerified
+          +String companyName
+          +String industry
+          +String contactInfo
+          +File[] verificationDocuments
+          +String location
+          +postJobListing()
+          +searchCandidatePosts()
+          +viewApplications()
+          +respondToApplication()
+          +sendMessage()
+          +receiveMessage()
+          +setNotificationPreferences()
+      }
+      class Admin {
+          +verifyEmployer(Employer)
+          +reviewVerificationDocuments(File[])
+          +manageUsers()
+          +handleComplaints()
+          +moderateJobListings()
+          +moderateCandidatePosts()
+          +removeViolatingPosts()
+          +generateReports()
+      }
+      class JobListing {
+          +String listingID
+          +String title
+          +String description
+          +String requirements
+          +String location
+          +DateTime postedDate
+          +String jobType
+          +apply()
+          +updateListing()
+          +removeListing()
+      }
+      class CandidatePost {
+          +String postID
+          +String description
+          +File cvFile
+          +String desiredJobTitle
+          +String locationPreference
+          +DateTime postedDate
+          +updatePost()
+          +removePost()
+      }
+      class JobApplication {
+          +String applicationID
+          +String status
+          +String coverLetter
+          +DateTime appliedDate
+          +submit()
+          +withdraw()
+          +updateStatus()
+      }
+      class Message {
+          +String messageID
+          +String senderID
+          +String receiverID
+          +String content
+          +DateTime timestamp
+          +sendMessage()
+          +receiveMessage()
+      }
+      class Notification {
+          +String notificationID
+          +String userID
+          +String message
+          +DateTime timestamp
+          +Boolean isRead
+          +sendNotification()
+      }

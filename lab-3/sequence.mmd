@@ -1,0 +1,17 @@
+---
+title: Job Application Process Sequence Diagram
+---
+sequenceDiagram
+    participant Candidate
+    participant System
+    participant Employer
+
+    Candidate->>+System: Log In
+    Candidate->>+System: Search for Jobs
+    System-->>-Candidate: Display Job Listings
+    Candidate->>+System: Select Job
+    Candidate->>+System: Apply for Job
+    System-->>-Employer: Notify of Application
+    Employer->>+System: Review Application
+    Employer->>+System: Respond to Application
+    System-->>-Candidate: Notify of Employer's Response
